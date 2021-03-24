@@ -5,16 +5,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
 
-/* Extra small devices (phones, 600px and down) */
-@media screen and (max-width: 600px) {
-	
-	#msform {
-		width: 35px;
-		margin: 75px auto;
-		text-align: center;
-		position: relative;
-	}
-}
+
 /*basic reset*/
 * {
 	margin: 0; 
@@ -467,3 +458,13 @@ input[placeholder] {
 	  width: 1em;    
 	}
   }
+/* Extra small devices (phones, 600px and down) */
+@media screen and (max-width: 600px) {
+	
+	#msform {
+		width: 35px;
+		margin: 75px auto;
+		text-align: center;
+		position: relative;
+	}
+}
