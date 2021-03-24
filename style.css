@@ -6,7 +6,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
 	
 	#msform {
 		width: 350px;
