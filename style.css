@@ -464,6 +464,7 @@ input[placeholder] {
 @media screen and (max-width: 600px) {
 	#msform {
 		width: 350px;
+		height: 500px;
 		margin: 75px auto;
 		text-align: center;
 		position: relative;
