@@ -1,0 +1,161 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+	<link 
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+	rel="stylesheet"  type='text/css'>
+  
+    <!-- jQuery -->
+	<script
+	src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
+<!-- jQuery easing plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="javascript.js"></script>
+    <title>GTS Franchise Cost Of Vaccancy Calculator</title>
+</head>
+
+<body>
+  <!-- multistep form -->
+<form id="msform">
+
+	<!-- progressbar -->
+	<ul id="progressbar">
+		<li class="active">Basic Position Information</li>
+		<li>Advanced Position Information</li>
+		<li>Results</li>
+	</ul>
+
+	<!-- fieldsets -->
+	<div class="intro">
+		<h2 class="intro-title">How much is your open position <span class="underline">REALLY</span> costing you?</h2>
+		<p class="bd-txt">A vacant position cost your organization more than you realize. While every company faces employee turnover, the most efficient and productive organizations have 
+            recruitment and retention plans to remain fully staffed with top talent.</p>
+            &nbsp;
+            <p class="bd-txt"> Find the true cost of an open position within your company in less than 1 minute!</p>
+		<input id="start-btn" type="button" name="next" class="next action-button" value="Get Started Now" />
+	</div>	
+
+
+	<fieldset class="step-1">
+
+		<h2 class="fs-title">Basic Position Information</h2>
+		<p class="fs-subtitle">First, help us understand some of the basics around your open position </p>
+
+		<!-- Inputs -->
+		<h3 class="ip-label">Position Title</h3>
+		<input type="text" name="postitle" class="js-postitle" placeholder="ex. Director Of Franchise Development" required />
+		
+		<h3 class="ip-label">Number Of Days Position Has Been Unfilled</h3>
+			<!-- Trigger/Open The Modal -->
+			<button type="button" class="quest"id="myBtn"><i class="fa fa-info"></i></button>
+		<input type="number" name="vacdays" class="js-vacdays" placeholder="90" required />
+
+
+
+
+
+		<!-- Buttons -->
+		<input id="back-intro" type="button" name="previous" class="previous action-button" value="Back" />
+		<input type="button" name="next" class="next action-button" value="Next" />
+	
+	</fieldset>
+
+
+	<fieldset>
+		
+		<h2 class="fs-title">Advanced Position Information</h2>
+		<h3 class="fs-subtitle">Next, let's get some additional information regarding your vaccancy</h3>
+		
+		<!-- Inputs -->
+		<h3 class="ip-label">Position Annual Salary</h3>
+		<input type="number" name="ansal" class="js-ansal" placeholder="$100,000" required />
+
+		<h3 class="ip-label">Salary Multiplier</h3>
+        <h3 class="fs-subtitle">Each employee you have on staff should have a positive ROI, historically, that's 2X their annual salary.</h3>
+		<input type="text" name="multi" class="js-multi" placeholder="E.g. 2" required />
+		<!-- Trigger/Open The Modal -->
+		<button type="button" class="quest2"id="myBtn2"><i class="fa fa-info"></i></button>
+		
+		<!-- <h3 class="ip-label">How much do you spend to acquire each customer?</h3>
+		<input type="text" name="ac" class="js-ac" placeholder="$10" required />//-->
+		
+		<!-- Buttons -->
+		<input type="button" name="previous" class="previous action-button" value="Back" />
+		<input type="button" name="next" class="next action-button" value="Next" />
+	
+	</fieldset>
+
+
+	<fieldset>
+		
+		<h2 class="fs-title">Calculating<span class="loading"></span> </h2>
+	
+		<h3 class="fs-subtitle">Our system is crunching the numbers.....let us know where to send the results</h3>
+		
+		<!-- Inputs -->
+		<h3 class="ip-label">First Name</h3>
+		<input type="text" name="fn" class="js-fn" placeholder= "Ex. John" />
+		<h3 class="ip-label">Last Name</h3>
+		<input type="text" name="ln" class="js-ln" placeholder= "Ex. Doe" />
+		<h3 class="ip-label">Email</h3>
+		<input type="text" name="em" class="js-em" placeholder= "E-Mail Address" />
+		
+		<!-- Buttons -->
+		<input type="button" name="calculate" class="calculate-btn next action-button2" value="Send Me My Report!" />
+
+	</fieldset>
+
+
+	<div class="answers">
+
+		<h2 class="fs-title">Check your Inbox!</h2>
+		<h3 class="fs-subtitle">Your report  is currently being generated and should be e-mailed to you within the next 4 min.</h3>
+
+		<div class="cro-result">
+
+		<!-- 	<h2 class="ip-label">What You Could Earn from CRO</h2>
+			<p class="bd-txt">(Lifetime profit generated annually with a 10% lift)</p>
+			<h3 class="js-profit result">Result</h3>
+
+			<h2 class="ip-label">What Your CRO Budget Should Be</h2>
+			<p class="bd-txt">(set at 50% of profit above)</p>
+			<h3 class="js-budget result">Result</h3> -->	
+
+			<!-- Submit Form to Server -->			
+			<!--  <input type="button" name="quote" class="quote action-button" value="Get a Quote on My Project" />
+
+
+			<a class="bd-txt minor-cta" href="#">Start over</a> -->	
+		</div>
+		
+	</div>
+	<!-- The Modal -->
+<div id="myModal" class="modal">
+
+	<!-- Modal content -->
+	<div class="modal-content">
+	  <span class="close">&times;</span>
+	  <p>On Average A Position Will Stay Unfilled For 90 Days</p>
+	</div>
+  
+  </div>
+
+  <div id="myModal2" class="modal">
+
+	<!-- Modal content -->
+	<div class="modal-content">
+	  <span class="close2">&times;</span>
+	  <p>Salary Multiplier Explaned</p>
+	</div>
+  
+  </div>	
+</form>
+
+
+</body>
+
+

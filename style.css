@@ -1,0 +1,459 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+
+/*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
+
+/*basic reset*/
+* {
+	margin: 0; 
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+html {
+	height: 100%;
+	background: #4B99BD;
+}
+
+body {
+	font-family: 'PT Sans', arial, verdana;
+}
+
+
+
+/*form styles*/
+
+#msform {
+	width: 500px;
+	margin: 75px auto;
+	text-align: center;
+	position: relative;
+}
+
+div.intro {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	width: 80%;
+	margin: 0 10%;
+	
+	/*stacking fieldsets above each other*/
+	position: absolute;
+	z-index: 1000;
+}
+
+div.answers {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	width: 80%;
+	margin: 0 10%;
+	/*keep hidden until the 'calculate button' is clicked on*/
+	opacity: 0;
+	/*stacking fieldsets above each other*/
+	position: absolute;
+	z-index: -1000;
+}
+
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	width: 80%;
+	margin: 0 10%;
+	opacity: 0;
+	/*stacking fieldsets above each other*/
+	position: absolute;
+}
+
+
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+
+#msform div.intro {
+	padding-top: 75px;
+	padding-bottom: 50px;
+}
+
+
+/*inputs*/
+#msform input, 
+#msform textarea,
+.result {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	font-family: 'PT Sans';
+	color: #2C3E50;
+	font-size: 13px;
+}
+
+
+.result {
+	margin-top: 10px;
+	margin-bottom: 20px;
+  border: none;
+  background-color: #FFFFD4;
+  font-size: 20px;
+  font-weight: bold;
+  
+}
+
+
+
+input[placeholder] {
+	font-size: 11px;
+	text-align: center;
+}
+
+
+
+
+/*buttons*/
+#msform .action-button {
+	max-width: 150px;
+	border: solid 1px #DE6A35;
+	background-color: #de5514;
+	font-weight: bold;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer;
+	padding: 20px 5px;
+	margin: 30px 5px 10px 5px;
+}
+#msform .action-button2 {
+	max-width: 300px;
+	border: solid 1px #00aa2b;
+	background-color: #009c22;
+	font-weight: bold;
+	color: white;
+	border-radius: 3px;
+	cursor: pointer;
+	padding: 20px 5px;
+	margin: 30px 5px 10px 5px;
+}
+
+
+#msform .previous.action-button {
+	border: solid 1px #627288;
+	background-color: #627288;
+	background-image: none;
+}
+
+
+#msform .quote {
+	max-width: 100%;
+	margin: 0px 5px 10px 5px;
+	background-image: none;
+	border: solid 1px #25A551;
+	background-image: -webkit-linear-gradient(top, #2CC360, #25A551);
+	background-image: -moz-linear-gradient(top, #2CC360, #25A551);
+	background-image: -o-linear-gradient(top, #2CC360, #25A551);
+	background-image: linear-gradient(top, #2CC360, #25A551);
+}
+
+
+
+#msform .action-button:hover, 
+#msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #de5514;
+}
+#msform .action-button2:hover, 
+#msform .action-button2:focus {
+	box-shadow: 0 0 0 2px rgb(255, 255, 255), 0 0 0 3px #058b00;
+}
+
+#msform .previous.action-button:hover, 
+#msform .previous.action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #798CA5;
+}
+
+#msform .quote:hover, 
+#msform .quote:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #25A551;
+} 
+
+/*headings*/
+
+.intro-title {
+	font-size: 30px;
+	font-weight: 700;
+	text-transform: none;
+	color: #2C3E50;
+	line-height: 1.3;
+	margin-bottom: 20px;
+}
+
+.fs-title {
+	font-size: 20px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: 400;	
+	font-size: 13px;
+	line-height: 1.5;
+	color: #666;
+	margin-bottom: 20px;
+}
+
+.ip-label {
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.5;
+	color: #333;
+	margin-top: 7px;
+	margin-bottom: 3px;
+}
+
+.ip-help {
+	font-size: 13px;
+	line-height: 1.2;
+	color: #999;
+	margin-bottom: 3px;
+}
+
+.cro-result {
+	border: solid 1px #999;
+	border-radius: 3px;
+	padding: 25px;
+	margin-bottom: 20px;
+}
+
+.minor-cta {
+	display:block;
+	color: #777;
+}
+
+
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+	opacity: 0;
+}
+
+.appear {
+	-webkit-animation: appear 0.5s ease-in forwards;
+	animation: appear 0.5s ease-in forwards;
+}
+
+@-webkit-keyframes appear {
+	0% { opacity: 0;}
+	100% { opacity: 100;}
+}
+
+@keyframes appear {
+	0% { opacity: 0;}
+	100% { opacity: 100;}
+}
+
+.disappear {
+	-webkit-animation: disappear 0.5s ease-out forwards;
+	animation: disappear 0.5s ease-out forwards;
+}
+
+@-webkit-keyframes disappear {
+	0% { opacity: 100;}
+	100% { opacity: 0;}
+}
+
+@keyframes disappear {
+	0% { opacity: 100;}
+	100% { opacity: 0;}
+}
+
+
+#progressbar li {
+	list-style-type: none;
+	color: white;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+}
+
+/*progressbar connectors*/
+#progressbar li:before {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 23px;
+	z-index: -1; /*put it behind the numbers*/
+}
+
+/*progressbar counters*/
+#progressbar li:after {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 5px auto 5px auto;
+}
+
+#progressbar li:first-child:before {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps orange*/
+/*The number of the step and the connector before it = orange*/
+#progressbar li.active:after,  #progressbar li.active:before{
+	background: #00aa2b;
+	color: white;
+}
+
+
+.bd-txt {
+	font-size: 13px;
+	color: #555;
+	font-weight: normal;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.hide {
+	visibility:hidden;
+}
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 30%;
+	top: 20%;
+	width: 40%; /* Full width */
+	height: 40%; /* Full height */
+	overflow: hidden; /* Enable scroll if needed */
+	background-color: rgba(0, 0, 0, 0); /* Fallback color */
+	 /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 40%;
+  }
+  
+  /* The Close Button */
+  .close {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  .close2 {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+  }
+
+  .close2:hover,
+  .close2:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+  }
+
+  .quest {
+	background-color: #4caf4fab;
+	border: none;
+	border-radius: 35%;
+	color: white;
+	padding: 2px 2px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	margin: 4px 2px;
+	cursor: pointer;
+	position: absolute;
+	left: 340px;
+    top:205px;
+  }
+
+  .quest2 {
+	background-color: #4caf4fab;
+	border: none;
+	border-radius: 35%;
+	color: white;
+	padding: 2px 2px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	margin: 4px 2px;
+	cursor: pointer;
+	position: absolute;
+	left:255px;
+    top:207px;
+  }
+
+  .loading {
+	font-size: 30px;
+	position:absolute;
+	left:259px;
+    top:22px;
+  }
+  
+  .loading:after {
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: bottom;
+	-webkit-animation: ellipsis steps(4,end) 900ms infinite;      
+	animation: ellipsis steps(4,end) 900ms infinite;
+	content: "\2026"; /* ascii code for the ellipsis character */
+	width: 0px;
+  }
+  
+  @keyframes ellipsis {
+	to {
+	  width: 1em;    
+	}
+  }
+  
+  @-webkit-keyframes ellipsis {
+	to {
+	  width: 1em;    
+	}
+  }
