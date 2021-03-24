@@ -7,7 +7,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-	msform {
+	#msform {
 		width: 400px;
 		margin: 75px auto;
 		text-align: center;
