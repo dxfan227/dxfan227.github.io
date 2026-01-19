@@ -3,159 +3,315 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-	<link 
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
-	rel="stylesheet"  type='text/css'>
-  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    
     <!-- jQuery -->
-	<script
-	src="https://code.jquery.com/jquery-3.6.0.min.js"
-	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-	crossorigin="anonymous"></script>
-<!-- jQuery easing plugin -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="javascript.js"></script>
-    <title>GTS Franchise Cost Of Vaccancy Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- jQuery easing plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="javascript.js"></script>
+    <title>Cost of Vacancy Calculator | GTS Franchise Solutions</title>
 </head>
 
 <body>
-  <!-- multistep form -->
-<form id="msform">
+    <div class="page-container">
+        <!-- Hero/Header Section -->
+        <div class="hero-section">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <div class="logo-area">
+                    <span class="logo-icon">📊</span>
+                    <h1 class="brand-title">GTS Franchise Solutions</h1>
+                </div>
+            </div>
+        </div>
 
-	<!-- progressbar -->
-	<ul id="progressbar">
-		<li class="active">Basic Position Information</li>
-		<li>Advanced Position Information</li>
-		<li>Results</li>
-	</ul>
+        <!-- Main Form Container -->
+        <form id="msform">
+            <!-- Progress Bar -->
+            <div class="progress-section">
+                <ul id="progressbar">
+                    <li class="active">
+                        <span class="progress-dot">1</span>
+                        <span class="progress-label">Position Details</span>
+                    </li>
+                    <li>
+                        <span class="progress-dot">2</span>
+                        <span class="progress-label">Financial Info</span>
+                    </li>
+                    <li>
+                        <span class="progress-dot">3</span>
+                        <span class="progress-label">Your Results</span>
+                    </li>
+                </ul>
+            </div>
 
-	<!-- fieldsets -->
-	<div class="intro">
-		<h2 class="intro-title">How much is your open position <span class="underline">REALLY</span> costing you?</h2>
-		<p class="bd-txt">A vacant position cost your organization more than you realize. While every company faces employee turnover, the most efficient and productive organizations have 
-            recruitment and retention plans to remain fully staffed with top talent.</p>
-            &nbsp;
-            <p class="bd-txt"> Find the true cost of an open position within your company in less than 1 minute!</p>
-		<input id="start-btn" type="button" name="next" class="next action-button" value="Get Started Now" />
-	</div>	
+            <!-- Intro Screen -->
+            <div class="form-wrapper">
+                <div class="intro">
+                    <div class="intro-content">
+                        <div class="intro-icon">💼</div>
+                        <h2 class="intro-title">Calculate Your <span class="highlight">True Cost of Vacancy</span></h2>
+                        <p class="intro-subtitle">Discover how much an open position really costs your organization. Get precise insights in under 60 seconds.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Takes less than 1 minute</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-lock"></i>
+                                <span>100% secure & private</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Data-driven insights</span>
+                            </div>
+                        </div>
+                        
+                        <button id="start-btn" type="button" name="next" class="next action-button btn-primary">
+                            <span>Get Started Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
 
+                <!-- Step 1: Basic Position Information -->
+                <fieldset class="form-step step-1">
+                    <div class="fieldset-wrapper">
+                        <div class="step-header">
+                            <h2 class="fs-title">Basic Position Information</h2>
+                            <p class="fs-subtitle">Tell us about the open position</p>
+                        </div>
 
-	<fieldset class="step-1">
+                        <div class="form-group">
+                            <label for="postitle" class="form-label">Position Title</label>
+                            <input 
+                                type="text" 
+                                id="postitle"
+                                name="postitle" 
+                                class="js-postitle form-input" 
+                                placeholder="e.g., Director Of Franchise Development" 
+                                required />
+                            <div class="input-underline"></div>
+                        </div>
 
-		<h2 class="fs-title">Basic Position Information</h2>
-		<p class="fs-subtitle">First, help us understand some of the basics around your open position </p>
+                        <div class="form-group">
+                            <label for="vacdays" class="form-label">
+                                Days Position Has Been Unfilled
+                                <button type="button" class="info-btn" id="myBtn">
+                                    <i class="fas fa-circle-info"></i>
+                                </button>
+                            </label>
+                            <input 
+                                type="number" 
+                                id="vacdays"
+                                name="vacdays" 
+                                class="js-vacdays form-input" 
+                                placeholder="e.g., 90" 
+                                required />
+                            <div class="input-underline"></div>
+                        </div>
 
-		<!-- Inputs -->
-		<h3 class="ip-label">Position Title</h3>
-		<input type="text" name="postitle" class="js-postitle" placeholder="ex. Director Of Franchise Development" required />
-		
-		<h3 class="ip-label">Number Of Days Position Has Been Unfilled</h3>
-			<!-- Trigger/Open The Modal -->
-			<button type="button" class="quest"id="myBtn"><i class="fa fa-info"></i></button>
-		<input type="number" name="vacdays" class="js-vacdays" placeholder="90" required />
+                        <div class="form-actions">
+                            <button id="back-intro" type="button" name="previous" class="previous action-button btn-secondary">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Back</span>
+                            </button>
+                            <button type="button" name="next" class="next action-button btn-primary">
+                                <span>Next</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
 
+                <!-- Step 2: Advanced Position Information -->
+                <fieldset class="form-step step-2">
+                    <div class="fieldset-wrapper">
+                        <div class="step-header">
+                            <h2 class="fs-title">Financial Information</h2>
+                            <p class="fs-subtitle">Help us calculate the impact</p>
+                        </div>
 
+                        <div class="form-group">
+                            <label for="ansal" class="form-label">Annual Salary</label>
+                            <div class="input-prefix">
+                                <span class="currency">$</span>
+                                <input 
+                                    type="number" 
+                                    id="ansal"
+                                    name="ansal" 
+                                    class="js-ansal form-input" 
+                                    placeholder="100,000" 
+                                    required />
+                            </div>
+                            <div class="input-underline"></div>
+                        </div>
 
+                        <div class="form-group">
+                            <label for="multi" class="form-label">
+                                Salary Multiplier
+                                <button type="button" class="info-btn" id="myBtn2">
+                                    <i class="fas fa-circle-info"></i>
+                                </button>
+                            </label>
+                            <p class="helper-text">Typically 2× annual salary. Each employee should generate 2x their salary in value.</p>
+                            <input 
+                                type="number" 
+                                id="multi"
+                                name="multi" 
+                                class="js-multi form-input" 
+                                placeholder="2" 
+                                step="0.5"
+                                required />
+                            <div class="input-underline"></div>
+                        </div>
 
+                        <div class="form-actions">
+                            <button type="button" name="previous" class="previous action-button btn-secondary">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Back</span>
+                            </button>
+                            <button type="button" name="next" class="next action-button btn-primary">
+                                <span>Next</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
 
-		<!-- Buttons -->
-		<input id="back-intro" type="button" name="previous" class="previous action-button" value="Back" />
-		<input type="button" name="next" class="next action-button" value="Next" />
-	
-	</fieldset>
+                <!-- Step 3: Contact Information & Results -->
+                <fieldset class="form-step step-3">
+                    <div class="fieldset-wrapper">
+                        <div class="step-header">
+                            <h2 class="fs-title">Share Your Information</h2>
+                            <p class="fs-subtitle">We'll send your detailed report to your email</p>
+                        </div>
 
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fn" class="form-label">First Name</label>
+                                <input 
+                                    type="text" 
+                                    id="fn"
+                                    name="fn" 
+                                    class="js-fn form-input" 
+                                    placeholder="John" 
+                                    required />
+                                <div class="input-underline"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ln" class="form-label">Last Name</label>
+                                <input 
+                                    type="text" 
+                                    id="ln"
+                                    name="ln" 
+                                    class="js-ln form-input" 
+                                    placeholder="Doe" 
+                                    required />
+                                <div class="input-underline"></div>
+                            </div>
+                        </div>
 
-	<fieldset>
-		
-		<h2 class="fs-title">Advanced Position Information</h2>
-		<h3 class="fs-subtitle">Next, let's get some additional information regarding your vaccancy</h3>
-		
-		<!-- Inputs -->
-		<h3 class="ip-label">Position Annual Salary</h3>
-		<input type="number" name="ansal" class="js-ansal" placeholder="$100,000" required />
+                        <div class="form-group">
+                            <label for="em" class="form-label">Email Address</label>
+                            <input 
+                                type="email" 
+                                id="em"
+                                name="em" 
+                                class="js-em form-input" 
+                                placeholder="john.doe@company.com" 
+                                required />
+                            <div class="input-underline"></div>
+                        </div>
 
-		<h3 class="ip-label">Salary Multiplier</h3>
-        <h3 class="fs-subtitle">Each employee you have on staff should have a positive ROI, historically, that's 2X their annual salary.</h3>
-		<input type="text" name="multi" class="js-multi" placeholder="E.g. 2" required />
-		<!-- Trigger/Open The Modal -->
-		<button type="button" class="quest2"id="myBtn2"><i class="fa fa-info"></i></button>
-		
-		<!-- <h3 class="ip-label">How much do you spend to acquire each customer?</h3>
-		<input type="text" name="ac" class="js-ac" placeholder="$10" required />//-->
-		
-		<!-- Buttons -->
-		<input type="button" name="previous" class="previous action-button" value="Back" />
-		<input type="button" name="next" class="next action-button" value="Next" />
-	
-	</fieldset>
+                        <div class="form-actions">
+                            <button type="button" name="previous" class="previous action-button btn-secondary">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Back</span>
+                            </button>
+                            <button type="button" name="calculate" class="calculate-btn action-button btn-success">
+                                <span>Get My Report</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
 
+                <!-- Results Screen -->
+                <div class="answers success-screen">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2 class="fs-title">Check Your Inbox!</h2>
+                    <p class="fs-subtitle">Your detailed cost of vacancy report is being generated and will be emailed to you within 4 minutes.</p>
+                    
+                    <div class="success-features">
+                        <div class="feature-card">
+                            <i class="fas fa-chart-pie"></i>
+                            <h4>Cost Breakdown</h4>
+                            <p>Detailed analysis of vacancy costs</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <h4>Recommendations</h4>
+                            <p>Actionable insights to minimize impact</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-handshake"></i>
+                            <h4>Expert Support</h4>
+                            <p>Our team is here to help</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
 
-	<fieldset>
-		
-		<h2 class="fs-title">Calculating<span class="loading"></span> </h2>
-	
-		<h3 class="fs-subtitle">Our system is crunching the numbers.....let us know where to send the results</h3>
-		
-		<!-- Inputs -->
-		<h3 class="ip-label">First Name</h3>
-		<input type="text" name="fn" class="js-fn" placeholder= "Ex. John" />
-		<h3 class="ip-label">Last Name</h3>
-		<input type="text" name="ln" class="js-ln" placeholder= "Ex. Doe" />
-		<h3 class="ip-label">Email</h3>
-		<input type="text" name="em" class="js-em" placeholder= "E-Mail Address" />
-		
-		<!-- Buttons -->
-		<input type="button" name="calculate" class="calculate-btn next action-button2" value="Send Me My Report!" />
+        <!-- Modals -->
+        <div id="myModal" class="modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button type="button" class="close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="modal-header">
+                    <h3>Days Position Unfilled</h3>
+                </div>
+                <div class="modal-body">
+                    <p>On average, a professional position stays unfilled for approximately <strong>90 days</strong>. This includes:</p>
+                    <ul>
+                        <li>Job posting and candidate sourcing</li>
+                        <li>Screening and interview process</li>
+                        <li>Negotiations and onboarding</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-	</fieldset>
-
-
-	<div class="answers">
-
-		<h2 class="fs-title">Check your Inbox!</h2>
-		<h3 class="fs-subtitle">Your report  is currently being generated and should be e-mailed to you within the next 4 min.</h3>
-
-		<div class="cro-result">
-
-		<!-- 	<h2 class="ip-label">What You Could Earn from CRO</h2>
-			<p class="bd-txt">(Lifetime profit generated annually with a 10% lift)</p>
-			<h3 class="js-profit result">Result</h3>
-
-			<h2 class="ip-label">What Your CRO Budget Should Be</h2>
-			<p class="bd-txt">(set at 50% of profit above)</p>
-			<h3 class="js-budget result">Result</h3> -->	
-
-			<!-- Submit Form to Server -->			
-			<!--  <input type="button" name="quote" class="quote action-button" value="Get a Quote on My Project" />
-
-
-			<a class="bd-txt minor-cta" href="#">Start over</a> -->	
-		</div>
-		
-	</div>
-	<!-- The Modal -->
-<div id="myModal" class="modal">
-
-	<!-- Modal content -->
-	<div class="modal-content">
-	  <span class="close">&times;</span>
-	  <p>On Average A Position Will Stay Unfilled For 90 Days</p>
-	</div>
-  
-  </div>
-
-  <div id="myModal2" class="modal">
-
-	<!-- Modal content -->
-	<div class="modal-content">
-	  <span class="close2">&times;</span>
-	  <p>Salary Multiplier Explaned</p>
-	</div>
-  
-  </div>	
-</form>
-
-
+        <div id="myModal2" class="modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button type="button" class="close close2">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="modal-header">
+                    <h3>Understanding Salary Multiplier</h3>
+                </div>
+                <div class="modal-body">
+                    <p>The salary multiplier represents the value each employee generates for your organization:</p>
+                    <ul>
+                        <li><strong>2x salary:</strong> Standard for most roles (typical baseline)</li>
+                        <li><strong>3x+ salary:</strong> High-performing/revenue-generating positions</li>
+                        <li><strong>1-2x salary:</strong> Support or specialized roles</li>
+                    </ul>
+                    <p>Historically, each employee should have a positive ROI of at least 2x their annual salary.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 
