@@ -44,7 +44,18 @@ $(document).ready(function() {
     
     let current_fs, next_fs, previous_fs;
     let animating = false;
-    let currentStep = 0; // Track current step (0 = intro, 1 = step1, 2 = step2, 3 = results)
+    
+    // Calculate which progress step we should be on
+    function updateProgressBar(element) {
+        // Find position among form-step elements only (not intro)
+        const allSteps = $(".form-step, .answers");
+        const stepIndex = allSteps.index(element);
+        
+        $("#progressbar li").removeClass("active");
+        if(stepIndex >= 0) {
+            $("#progressbar li").eq(stepIndex).addClass("active");
+        }
+    }
     
     $(".next").click(function(){
         if(animating) return false;
@@ -53,11 +64,9 @@ $(document).ready(function() {
         current_fs = $(this).closest(".intro, .form-step, .answers");
         next_fs = current_fs.next();
         
-        // Update progress bar based on current step
-        currentStep++;
-        $("#progressbar li").removeClass("active");
-        if(currentStep <= 3) {
-            $("#progressbar li").eq(currentStep - 1).addClass("active");
+        // Update progress bar when moving to next step
+        if(next_fs.hasClass('form-step') || next_fs.hasClass('answers')) {
+            updateProgressBar(next_fs);
         }
         
         // Show next with animation
@@ -87,11 +96,12 @@ $(document).ready(function() {
         current_fs = $(this).closest(".intro, .form-step, .answers");
         previous_fs = current_fs.prev();
         
-        // Update progress bar
-        currentStep--;
-        $("#progressbar li").removeClass("active");
-        if(currentStep > 0) {
-            $("#progressbar li").eq(currentStep - 1).addClass("active");
+        // Update progress bar when moving to previous step
+        if(previous_fs.hasClass('form-step') || previous_fs.hasClass('answers')) {
+            updateProgressBar(previous_fs);
+        } else {
+            // If going back to intro, clear progress bar active states
+            $("#progressbar li").removeClass("active");
         }
         
         // Show previous with animation
