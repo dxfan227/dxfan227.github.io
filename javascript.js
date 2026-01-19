@@ -44,18 +44,21 @@ $(document).ready(function() {
     
     let current_fs, next_fs, previous_fs;
     let animating = false;
+    let currentStep = 0; // Track current step (0 = intro, 1 = step1, 2 = step2, 3 = results)
     
     $(".next").click(function(){
         if(animating) return false;
         
         animating = true;
-        current_fs = $(this).parent();
-        next_fs = $(this).parent().next();
+        current_fs = $(this).closest(".intro, .form-step, .answers");
+        next_fs = current_fs.next();
         
-        // Update progress bar
-        const nextIndex = $(".form-step, .intro, .answers").index(next_fs);
+        // Update progress bar based on current step
+        currentStep++;
         $("#progressbar li").removeClass("active");
-        $("#progressbar li").eq(nextIndex).addClass("active");
+        if(currentStep <= 3) {
+            $("#progressbar li").eq(currentStep - 1).addClass("active");
+        }
         
         // Show next with animation
         next_fs.show().addClass('show');
@@ -81,13 +84,15 @@ $(document).ready(function() {
         if(animating) return false;
         
         animating = true;
-        current_fs = $(this).parent();
-        previous_fs = $(this).parent().prev();
+        current_fs = $(this).closest(".intro, .form-step, .answers");
+        previous_fs = current_fs.prev();
         
         // Update progress bar
-        const prevIndex = $(".form-step, .intro, .answers").index(previous_fs);
+        currentStep--;
         $("#progressbar li").removeClass("active");
-        $("#progressbar li").eq(prevIndex).addClass("active");
+        if(currentStep > 0) {
+            $("#progressbar li").eq(currentStep - 1).addClass("active");
+        }
         
         // Show previous with animation
         previous_fs.show().addClass('show');
