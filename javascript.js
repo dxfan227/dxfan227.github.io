@@ -5,6 +5,32 @@ Professional Design with Full Responsive Support
 
 $(document).ready(function() {
     // ============================================
+    // 3D TESLA CAR DISPLAY
+    // ============================================
+    if (window.innerWidth > 768) {
+        $('.tesla-container').show();
+        // Make hero layout flex for side-by-side
+        $('.hero-content').css({
+            'display': 'flex',
+            'align-items': 'center',
+            'justify-content': 'center',
+            'gap': '3rem',
+            'max-width': '100%'
+        });
+        
+        $('.hero-text').css({
+            'flex': '1',
+            'text-align': 'left'
+        });
+        
+        $('.tesla-container').css({
+            'flex': '1',
+            'display': 'flex',
+            'justify-content': 'center'
+        });
+    }
+    
+    // ============================================
     // MOBILE MENU TOGGLE
     // ============================================
     $('#menuToggle').click(function() {

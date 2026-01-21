@@ -224,7 +224,190 @@ a:hover {
     opacity: 0.95;
 }
 
+/* ============= 3D TESLA CAR ============= */
+.tesla-container {
+    display: none;
+    perspective: 1000px;
+    margin-top: 3rem;
+}
+
+.tesla-scene {
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    animation: rotateTesla 20s infinite linear;
+}
+
+@keyframes rotateTesla {
+    from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    to {
+        transform: rotateX(5deg) rotateY(360deg) rotateZ(0deg);
+    }
+}
+
+.tesla {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+/* Car Body - Cube */
+.car-body {
+    width: 200px;
+    height: 80px;
+    position: absolute;
+    left: 50px;
+    top: 60px;
+    transform-style: preserve-3d;
+}
+
+.car-body > div {
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    border: 2px solid rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background: rgba(0, 100, 200, 0.7);
+    opacity: 0.9;
+}
+
+.car-front {
+    background: rgba(0, 120, 220, 0.8);
+    width: 80px;
+    height: 80px;
+    transform: rotateY(0deg) translateZ(100px);
+}
+
+.car-back {
+    background: rgba(0, 80, 180, 0.8);
+    width: 80px;
+    height: 80px;
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.car-left {
+    background: rgba(0, 90, 200, 0.8);
+    width: 200px;
+    height: 80px;
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.car-right {
+    background: rgba(0, 110, 210, 0.8);
+    width: 200px;
+    height: 80px;
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.car-top {
+    background: rgba(0, 150, 255, 0.85);
+    width: 200px;
+    height: 100px;
+    border-radius: 20px 20px 0 0;
+    transform: rotateX(90deg) translateZ(40px);
+}
+
+.car-bottom {
+    background: rgba(0, 60, 160, 0.8);
+    width: 200px;
+    height: 100px;
+    transform: rotateX(-90deg) translateZ(40px);
+}
+
+/* Wheels */
+.wheel {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), #000);
+    border-radius: 50%;
+    border: 3px solid #222;
+    top: 135px;
+    transform-style: preserve-3d;
+    animation: spinWheel 2s linear infinite;
+}
+
+.front-left {
+    left: 70px;
+}
+
+.front-right {
+    right: 70px;
+}
+
+.rear-left {
+    left: 190px;
+}
+
+.rear-right {
+    right: 190px;
+}
+
+@keyframes spinWheel {
+    from {
+        transform: rotateX(0deg);
+    }
+    to {
+        transform: rotateX(360deg);
+    }
+}
+
+/* Windows */
+.window {
+    position: absolute;
+    background: rgba(135, 206, 235, 0.4);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.front-window {
+    width: 60px;
+    height: 40px;
+    top: 70px;
+    left: 90px;
+    border-radius: 5px;
+}
+
+.rear-window {
+    width: 50px;
+    height: 35px;
+    top: 75px;
+    right: 100px;
+    border-radius: 5px;
+}
+
+/* Door */
+.door {
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    background: rgba(0, 100, 200, 0.6);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    top: 85px;
+    left: 130px;
+    animation: doorOpen 3s ease-in-out infinite;
+}
+
+@keyframes doorOpen {
+    0%, 100% {
+        transform: rotateY(0deg);
+        transform-origin: left center;
+    }
+    50% {
+        transform: rotateY(-30deg);
+        transform-origin: left center;
+    }
+}
+
 /* ============= BUTTONS ============= */
+
 .btn {
     padding: 12px 30px;
     border: none;
