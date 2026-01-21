@@ -71,11 +71,11 @@ $(document).ready(function() {
     function updateProgressBar(step) {
         $('#progressbar li').removeClass('active');
         
-        // Map form steps: 0=intro(hidden), 1=step1, 2=step2, 3=results
-        // Progress bar only shows steps 1-3
-        if (step > 0 && step <= 3) {
+        // Map form steps: 0=intro(hidden), 1=step1, 2=step2
+        // Progress bar only shows steps 1-2
+        if (step > 0 && step <= 2) {
             $('#progressbar li').eq(step - 1).addClass('active');
-            const width = (step * 33.33) + '%';
+            const width = (step * 50) + '%';
             $('.progress-fill').css('width', width);
         }
     }
@@ -95,8 +95,17 @@ $(document).ready(function() {
         // Calculate results
         calculateResults();
         
-        // Go to results
-        goToStep(3);
+        // Hide calculator section and show results page
+        $('#msform').fadeOut(300, function() {
+            $('#resultsPage').fadeIn(300);
+        });
+
+        // Scroll to results
+        setTimeout(function() {
+            $('html, body').animate({
+                scrollTop: $('#resultsPage').offset().top - 100
+            }, 500);
+        }, 300);
     });
 
     function validateForm() {
@@ -129,8 +138,35 @@ $(document).ready(function() {
             minimumFractionDigits: 0
         });
 
-        $('.result-value').text(formatter.format(totalCost));
+        $('#totalVacancyCost').text(formatter.format(totalCost));
     }
+
+    // ============================================
+    // RESULTS PAGE ACTIONS
+    // ============================================
+    $('#learnMoreBtn').click(function() {
+        window.location.href = 'https://www.gtsrecruiters.com';
+    });
+
+    $('#startOverBtn').click(function() {
+        // Reset form
+        $('#msform')[0].reset();
+        
+        // Hide results page and show calculator
+        $('#resultsPage').fadeOut(300, function() {
+            $('#msform').fadeIn(300);
+        });
+
+        // Reset to intro
+        goToStep(0);
+
+        // Scroll to form
+        setTimeout(function() {
+            $('html, body').animate({
+                scrollTop: $('#calculator').offset().top - 100
+            }, 500);
+        }, 300);
+    });
 
     // ============================================
     // INFO MODALS
